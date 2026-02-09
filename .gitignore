@@ -1,0 +1,6 @@
+# Generated reference source used for local code generation only
+xdk-python/
+
+# Python
+__pycache__/
+*.pyc
