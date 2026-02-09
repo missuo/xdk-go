@@ -1,6 +1,9 @@
 # Generated reference source used for local code generation only
 xdk-python/
 
+# Local credentialed integration test (contains secrets)
+local_credentials_test.go
+
 # Python
 __pycache__/
 *.pyc
