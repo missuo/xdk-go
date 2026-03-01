@@ -7,6 +7,19 @@ type ConnectionsClient struct {
 	client *Client
 }
 
+func (c *ConnectionsClient) DeleteByEndpoint(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["connections.delete_by_endpoint"], cloneParams(input))
+}
+
+func (c *ConnectionsClient) GetConnectionHistory(input Params) *Pager {
+	return c.client.newPager(operations["connections.get_connection_history"], cloneParams(input))
+}
+
+func (c *ConnectionsClient) DeleteByUuids(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["connections.delete_by_uuids"], cloneParams(input))
+}
+
 func (c *ConnectionsClient) DeleteAll(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["connections.delete_all"], cloneParams(input))
 }
+

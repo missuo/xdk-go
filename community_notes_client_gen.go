@@ -7,22 +7,23 @@ type CommunityNotesClient struct {
 	client *Client
 }
 
-func (c *CommunityNotesClient) Create(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["community_notes.create"], cloneParams(input))
+func (c *CommunityNotesClient) SearchWritten(input Params) *Pager {
+	return c.client.newPager(operations["community_notes.search_written"], cloneParams(input))
 }
 
 func (c *CommunityNotesClient) Delete(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["community_notes.delete"], cloneParams(input))
 }
 
-func (c *CommunityNotesClient) Evaluate(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["community_notes.evaluate"], cloneParams(input))
+func (c *CommunityNotesClient) Create(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["community_notes.create"], cloneParams(input))
 }
 
-func (c *CommunityNotesClient) SearchWritten(input Params) *Pager {
-	return c.client.newPager(operations["community_notes.search_written"], cloneParams(input))
+func (c *CommunityNotesClient) Evaluate(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["community_notes.evaluate"], cloneParams(input))
 }
 
 func (c *CommunityNotesClient) SearchEligiblePosts(input Params) *Pager {
 	return c.client.newPager(operations["community_notes.search_eligible_posts"], cloneParams(input))
 }
+

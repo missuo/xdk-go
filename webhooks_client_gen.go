@@ -7,6 +7,18 @@ type WebhooksClient struct {
 	client *Client
 }
 
+func (c *WebhooksClient) Get(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["webhooks.get"], cloneParams(input))
+}
+
+func (c *WebhooksClient) Create(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["webhooks.create"], cloneParams(input))
+}
+
+func (c *WebhooksClient) CreateWebhookReplayJob(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["webhooks.create_webhook_replay_job"], cloneParams(input))
+}
+
 func (c *WebhooksClient) Validate(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["webhooks.validate"], cloneParams(input))
 }
@@ -15,20 +27,8 @@ func (c *WebhooksClient) Delete(ctx context.Context, input Params) (JSON, error)
 	return c.client.call(ctx, operations["webhooks.delete"], cloneParams(input))
 }
 
-func (c *WebhooksClient) CreateWebhookReplayJob(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["webhooks.create_webhook_replay_job"], cloneParams(input))
-}
-
 func (c *WebhooksClient) GetStreamLinks(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["webhooks.get_stream_links"], cloneParams(input))
-}
-
-func (c *WebhooksClient) Get(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["webhooks.get"], cloneParams(input))
-}
-
-func (c *WebhooksClient) Create(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["webhooks.create"], cloneParams(input))
 }
 
 func (c *WebhooksClient) CreateStreamLink(ctx context.Context, input Params) (JSON, error) {
@@ -38,3 +38,4 @@ func (c *WebhooksClient) CreateStreamLink(ctx context.Context, input Params) (JS
 func (c *WebhooksClient) DeleteStreamLink(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["webhooks.delete_stream_link"], cloneParams(input))
 }
+

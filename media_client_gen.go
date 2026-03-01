@@ -7,16 +7,20 @@ type MediaClient struct {
 	client *Client
 }
 
-func (c *MediaClient) AppendUpload(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["media.append_upload"], cloneParams(input))
+func (c *MediaClient) GetByKey(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["media.get_by_key"], cloneParams(input))
 }
 
-func (c *MediaClient) FinalizeUpload(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["media.finalize_upload"], cloneParams(input))
+func (c *MediaClient) GetByKeys(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["media.get_by_keys"], cloneParams(input))
 }
 
 func (c *MediaClient) GetAnalytics(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["media.get_analytics"], cloneParams(input))
+}
+
+func (c *MediaClient) AppendUpload(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["media.append_upload"], cloneParams(input))
 }
 
 func (c *MediaClient) InitializeUpload(ctx context.Context, input Params) (JSON, error) {
@@ -31,16 +35,12 @@ func (c *MediaClient) Upload(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["media.upload"], cloneParams(input))
 }
 
-func (c *MediaClient) GetByKeys(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["media.get_by_keys"], cloneParams(input))
-}
-
-func (c *MediaClient) GetByKey(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["media.get_by_key"], cloneParams(input))
-}
-
 func (c *MediaClient) CreateMetadata(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["media.create_metadata"], cloneParams(input))
+}
+
+func (c *MediaClient) FinalizeUpload(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["media.finalize_upload"], cloneParams(input))
 }
 
 func (c *MediaClient) CreateSubtitles(ctx context.Context, input Params) (JSON, error) {
@@ -50,3 +50,4 @@ func (c *MediaClient) CreateSubtitles(ctx context.Context, input Params) (JSON, 
 func (c *MediaClient) DeleteSubtitles(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["media.delete_subtitles"], cloneParams(input))
 }
+

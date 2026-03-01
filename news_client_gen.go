@@ -7,10 +7,11 @@ type NewsClient struct {
 	client *Client
 }
 
+func (c *NewsClient) Search(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["news.search"], cloneParams(input))
+}
+
 func (c *NewsClient) Get(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["news.get"], cloneParams(input))
 }
 
-func (c *NewsClient) Search(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["news.search"], cloneParams(input))
-}

@@ -7,12 +7,12 @@ type SpacesClient struct {
 	client *Client
 }
 
-func (c *SpacesClient) GetBuyers(input Params) *Pager {
-	return c.client.newPager(operations["spaces.get_buyers"], cloneParams(input))
+func (c *SpacesClient) GetByCreatorIds(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["spaces.get_by_creator_ids"], cloneParams(input))
 }
 
-func (c *SpacesClient) GetByIds(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["spaces.get_by_ids"], cloneParams(input))
+func (c *SpacesClient) GetBuyers(input Params) *Pager {
+	return c.client.newPager(operations["spaces.get_buyers"], cloneParams(input))
 }
 
 func (c *SpacesClient) Search(ctx context.Context, input Params) (JSON, error) {
@@ -23,10 +23,11 @@ func (c *SpacesClient) GetById(ctx context.Context, input Params) (JSON, error) 
 	return c.client.call(ctx, operations["spaces.get_by_id"], cloneParams(input))
 }
 
+func (c *SpacesClient) GetByIds(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["spaces.get_by_ids"], cloneParams(input))
+}
+
 func (c *SpacesClient) GetPosts(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["spaces.get_posts"], cloneParams(input))
 }
 
-func (c *SpacesClient) GetByCreatorIds(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["spaces.get_by_creator_ids"], cloneParams(input))
-}

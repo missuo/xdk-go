@@ -7,6 +7,30 @@ type ListsClient struct {
 	client *Client
 }
 
+func (c *ListsClient) GetMembers(input Params) *Pager {
+	return c.client.newPager(operations["lists.get_members"], cloneParams(input))
+}
+
+func (c *ListsClient) AddMember(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["lists.add_member"], cloneParams(input))
+}
+
+func (c *ListsClient) GetPosts(input Params) *Pager {
+	return c.client.newPager(operations["lists.get_posts"], cloneParams(input))
+}
+
+func (c *ListsClient) Create(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["lists.create"], cloneParams(input))
+}
+
+func (c *ListsClient) GetFollowers(input Params) *Pager {
+	return c.client.newPager(operations["lists.get_followers"], cloneParams(input))
+}
+
+func (c *ListsClient) RemoveMemberByUserId(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["lists.remove_member_by_user_id"], cloneParams(input))
+}
+
 func (c *ListsClient) GetById(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["lists.get_by_id"], cloneParams(input))
 }
@@ -19,26 +43,3 @@ func (c *ListsClient) Delete(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["lists.delete"], cloneParams(input))
 }
 
-func (c *ListsClient) GetMembers(input Params) *Pager {
-	return c.client.newPager(operations["lists.get_members"], cloneParams(input))
-}
-
-func (c *ListsClient) AddMember(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["lists.add_member"], cloneParams(input))
-}
-
-func (c *ListsClient) Create(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["lists.create"], cloneParams(input))
-}
-
-func (c *ListsClient) RemoveMemberByUserId(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["lists.remove_member_by_user_id"], cloneParams(input))
-}
-
-func (c *ListsClient) GetFollowers(input Params) *Pager {
-	return c.client.newPager(operations["lists.get_followers"], cloneParams(input))
-}
-
-func (c *ListsClient) GetPosts(input Params) *Pager {
-	return c.client.newPager(operations["lists.get_posts"], cloneParams(input))
-}

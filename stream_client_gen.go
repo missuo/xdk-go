@@ -7,56 +7,48 @@ type StreamClient struct {
 	client *Client
 }
 
+func (c *StreamClient) PostsFirehosePt(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
+	return c.client.stream(ctx, operations["stream.posts_firehose_pt"], cloneParams(input), config)
+}
+
 func (c *StreamClient) PostsFirehoseJa(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
 	return c.client.stream(ctx, operations["stream.posts_firehose_ja"], cloneParams(input), config)
-}
-
-func (c *StreamClient) PostsFirehose(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
-	return c.client.stream(ctx, operations["stream.posts_firehose"], cloneParams(input), config)
-}
-
-func (c *StreamClient) PostsSample10(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
-	return c.client.stream(ctx, operations["stream.posts_sample10"], cloneParams(input), config)
-}
-
-func (c *StreamClient) LikesCompliance(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
-	return c.client.stream(ctx, operations["stream.likes_compliance"], cloneParams(input), config)
-}
-
-func (c *StreamClient) Posts(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
-	return c.client.stream(ctx, operations["stream.posts"], cloneParams(input), config)
-}
-
-func (c *StreamClient) PostsFirehoseEn(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
-	return c.client.stream(ctx, operations["stream.posts_firehose_en"], cloneParams(input), config)
 }
 
 func (c *StreamClient) LabelsCompliance(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
 	return c.client.stream(ctx, operations["stream.labels_compliance"], cloneParams(input), config)
 }
 
-func (c *StreamClient) UsersCompliance(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
-	return c.client.stream(ctx, operations["stream.users_compliance"], cloneParams(input), config)
-}
-
-func (c *StreamClient) PostsFirehoseKo(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
-	return c.client.stream(ctx, operations["stream.posts_firehose_ko"], cloneParams(input), config)
-}
-
-func (c *StreamClient) PostsSample(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
-	return c.client.stream(ctx, operations["stream.posts_sample"], cloneParams(input), config)
-}
-
 func (c *StreamClient) PostsCompliance(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
 	return c.client.stream(ctx, operations["stream.posts_compliance"], cloneParams(input), config)
+}
+
+func (c *StreamClient) LikesCompliance(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
+	return c.client.stream(ctx, operations["stream.likes_compliance"], cloneParams(input), config)
 }
 
 func (c *StreamClient) GetRuleCounts(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["stream.get_rule_counts"], cloneParams(input))
 }
 
-func (c *StreamClient) LikesSample10(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
-	return c.client.stream(ctx, operations["stream.likes_sample10"], cloneParams(input), config)
+func (c *StreamClient) LikesFirehose(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
+	return c.client.stream(ctx, operations["stream.likes_firehose"], cloneParams(input), config)
+}
+
+func (c *StreamClient) PostsFirehose(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
+	return c.client.stream(ctx, operations["stream.posts_firehose"], cloneParams(input), config)
+}
+
+func (c *StreamClient) PostsFirehoseKo(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
+	return c.client.stream(ctx, operations["stream.posts_firehose_ko"], cloneParams(input), config)
+}
+
+func (c *StreamClient) UsersCompliance(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
+	return c.client.stream(ctx, operations["stream.users_compliance"], cloneParams(input), config)
+}
+
+func (c *StreamClient) PostsSample(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
+	return c.client.stream(ctx, operations["stream.posts_sample"], cloneParams(input), config)
 }
 
 func (c *StreamClient) GetRules(input Params) *Pager {
@@ -67,10 +59,19 @@ func (c *StreamClient) UpdateRules(ctx context.Context, input Params) (JSON, err
 	return c.client.call(ctx, operations["stream.update_rules"], cloneParams(input))
 }
 
-func (c *StreamClient) LikesFirehose(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
-	return c.client.stream(ctx, operations["stream.likes_firehose"], cloneParams(input), config)
+func (c *StreamClient) LikesSample10(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
+	return c.client.stream(ctx, operations["stream.likes_sample10"], cloneParams(input), config)
 }
 
-func (c *StreamClient) PostsFirehosePt(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
-	return c.client.stream(ctx, operations["stream.posts_firehose_pt"], cloneParams(input), config)
+func (c *StreamClient) PostsSample10(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
+	return c.client.stream(ctx, operations["stream.posts_sample10"], cloneParams(input), config)
 }
+
+func (c *StreamClient) Posts(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
+	return c.client.stream(ctx, operations["stream.posts"], cloneParams(input), config)
+}
+
+func (c *StreamClient) PostsFirehoseEn(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
+	return c.client.stream(ctx, operations["stream.posts_firehose_en"], cloneParams(input), config)
+}
+

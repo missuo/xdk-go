@@ -10,3 +10,4 @@ type UsageClient struct {
 func (c *UsageClient) Get(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["usage.get"], cloneParams(input))
 }
+

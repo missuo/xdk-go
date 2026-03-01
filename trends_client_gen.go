@@ -7,14 +7,11 @@ type TrendsClient struct {
 	client *Client
 }
 
-func (c *TrendsClient) GetAi(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["trends.get_ai"], cloneParams(input))
+func (c *TrendsClient) GetPersonalized(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["trends.get_personalized"], cloneParams(input))
 }
 
 func (c *TrendsClient) GetByWoeid(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["trends.get_by_woeid"], cloneParams(input))
 }
 
-func (c *TrendsClient) GetPersonalized(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["trends.get_personalized"], cloneParams(input))
-}

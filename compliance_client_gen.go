@@ -7,10 +7,6 @@ type ComplianceClient struct {
 	client *Client
 }
 
-func (c *ComplianceClient) GetJobsById(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["compliance.get_jobs_by_id"], cloneParams(input))
-}
-
 func (c *ComplianceClient) GetJobs(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["compliance.get_jobs"], cloneParams(input))
 }
@@ -18,3 +14,8 @@ func (c *ComplianceClient) GetJobs(ctx context.Context, input Params) (JSON, err
 func (c *ComplianceClient) CreateJobs(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["compliance.create_jobs"], cloneParams(input))
 }
+
+func (c *ComplianceClient) GetJobsById(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["compliance.get_jobs_by_id"], cloneParams(input))
+}
+

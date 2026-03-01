@@ -7,16 +7,12 @@ type AccountActivityClient struct {
 	client *Client
 }
 
-func (c *AccountActivityClient) GetSubscriptionCount(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["account_activity.get_subscription_count"], cloneParams(input))
-}
-
-func (c *AccountActivityClient) DeleteSubscription(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["account_activity.delete_subscription"], cloneParams(input))
-}
-
 func (c *AccountActivityClient) CreateReplayJob(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["account_activity.create_replay_job"], cloneParams(input))
+}
+
+func (c *AccountActivityClient) GetSubscriptions(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["account_activity.get_subscriptions"], cloneParams(input))
 }
 
 func (c *AccountActivityClient) ValidateSubscription(ctx context.Context, input Params) (JSON, error) {
@@ -27,6 +23,11 @@ func (c *AccountActivityClient) CreateSubscription(ctx context.Context, input Pa
 	return c.client.call(ctx, operations["account_activity.create_subscription"], cloneParams(input))
 }
 
-func (c *AccountActivityClient) GetSubscriptions(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["account_activity.get_subscriptions"], cloneParams(input))
+func (c *AccountActivityClient) DeleteSubscription(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["account_activity.delete_subscription"], cloneParams(input))
 }
+
+func (c *AccountActivityClient) GetSubscriptionCount(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["account_activity.get_subscription_count"], cloneParams(input))
+}
+

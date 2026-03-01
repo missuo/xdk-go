@@ -7,12 +7,8 @@ type ActivityClient struct {
 	client *Client
 }
 
-func (c *ActivityClient) GetSubscriptions(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["activity.get_subscriptions"], cloneParams(input))
-}
-
-func (c *ActivityClient) CreateSubscription(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["activity.create_subscription"], cloneParams(input))
+func (c *ActivityClient) Stream(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
+	return c.client.stream(ctx, operations["activity.stream"], cloneParams(input), config)
 }
 
 func (c *ActivityClient) UpdateSubscription(ctx context.Context, input Params) (JSON, error) {
@@ -23,6 +19,11 @@ func (c *ActivityClient) DeleteSubscription(ctx context.Context, input Params) (
 	return c.client.call(ctx, operations["activity.delete_subscription"], cloneParams(input))
 }
 
-func (c *ActivityClient) Stream(ctx context.Context, input Params, config *StreamConfig) (<-chan JSON, <-chan error) {
-	return c.client.stream(ctx, operations["activity.stream"], cloneParams(input), config)
+func (c *ActivityClient) GetSubscriptions(input Params) *Pager {
+	return c.client.newPager(operations["activity.get_subscriptions"], cloneParams(input))
 }
+
+func (c *ActivityClient) CreateSubscription(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["activity.create_subscription"], cloneParams(input))
+}
+

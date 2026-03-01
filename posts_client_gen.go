@@ -7,52 +7,8 @@ type PostsClient struct {
 	client *Client
 }
 
-func (c *PostsClient) GetInsights28hr(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["posts.get_insights28hr"], cloneParams(input))
-}
-
-func (c *PostsClient) SearchAll(input Params) *Pager {
-	return c.client.newPager(operations["posts.search_all"], cloneParams(input))
-}
-
-func (c *PostsClient) GetRepostedBy(input Params) *Pager {
-	return c.client.newPager(operations["posts.get_reposted_by"], cloneParams(input))
-}
-
-func (c *PostsClient) SearchRecent(input Params) *Pager {
-	return c.client.newPager(operations["posts.search_recent"], cloneParams(input))
-}
-
-func (c *PostsClient) GetReposts(input Params) *Pager {
-	return c.client.newPager(operations["posts.get_reposts"], cloneParams(input))
-}
-
-func (c *PostsClient) GetInsightsHistorical(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["posts.get_insights_historical"], cloneParams(input))
-}
-
 func (c *PostsClient) GetCountsRecent(input Params) *Pager {
 	return c.client.newPager(operations["posts.get_counts_recent"], cloneParams(input))
-}
-
-func (c *PostsClient) GetCountsAll(input Params) *Pager {
-	return c.client.newPager(operations["posts.get_counts_all"], cloneParams(input))
-}
-
-func (c *PostsClient) HideReply(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["posts.hide_reply"], cloneParams(input))
-}
-
-func (c *PostsClient) GetLikingUsers(input Params) *Pager {
-	return c.client.newPager(operations["posts.get_liking_users"], cloneParams(input))
-}
-
-func (c *PostsClient) GetById(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["posts.get_by_id"], cloneParams(input))
-}
-
-func (c *PostsClient) Delete(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["posts.delete"], cloneParams(input))
 }
 
 func (c *PostsClient) GetByIds(ctx context.Context, input Params) (JSON, error) {
@@ -63,10 +19,55 @@ func (c *PostsClient) Create(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["posts.create"], cloneParams(input))
 }
 
+func (c *PostsClient) GetById(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["posts.get_by_id"], cloneParams(input))
+}
+
+func (c *PostsClient) Delete(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["posts.delete"], cloneParams(input))
+}
+
+func (c *PostsClient) SearchAll(input Params) *Pager {
+	return c.client.newPager(operations["posts.search_all"], cloneParams(input))
+}
+
+func (c *PostsClient) GetRepostedBy(input Params) *Pager {
+	return c.client.newPager(operations["posts.get_reposted_by"], cloneParams(input))
+}
+
 func (c *PostsClient) GetQuoted(input Params) *Pager {
 	return c.client.newPager(operations["posts.get_quoted"], cloneParams(input))
+}
+
+func (c *PostsClient) GetCountsAll(input Params) *Pager {
+	return c.client.newPager(operations["posts.get_counts_all"], cloneParams(input))
+}
+
+func (c *PostsClient) SearchRecent(input Params) *Pager {
+	return c.client.newPager(operations["posts.search_recent"], cloneParams(input))
+}
+
+func (c *PostsClient) GetLikingUsers(input Params) *Pager {
+	return c.client.newPager(operations["posts.get_liking_users"], cloneParams(input))
+}
+
+func (c *PostsClient) GetReposts(input Params) *Pager {
+	return c.client.newPager(operations["posts.get_reposts"], cloneParams(input))
+}
+
+func (c *PostsClient) HideReply(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["posts.hide_reply"], cloneParams(input))
 }
 
 func (c *PostsClient) GetAnalytics(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["posts.get_analytics"], cloneParams(input))
 }
+
+func (c *PostsClient) GetInsights28hr(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["posts.get_insights28hr"], cloneParams(input))
+}
+
+func (c *PostsClient) GetInsightsHistorical(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["posts.get_insights_historical"], cloneParams(input))
+}
+

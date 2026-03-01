@@ -15,20 +15,20 @@ func (c *DirectMessagesClient) CreateByConversationId(ctx context.Context, input
 	return c.client.call(ctx, operations["direct_messages.create_by_conversation_id"], cloneParams(input))
 }
 
-func (c *DirectMessagesClient) GetEventsByParticipantId(input Params) *Pager {
-	return c.client.newPager(operations["direct_messages.get_events_by_participant_id"], cloneParams(input))
-}
-
-func (c *DirectMessagesClient) CreateByParticipantId(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["direct_messages.create_by_participant_id"], cloneParams(input))
+func (c *DirectMessagesClient) GetEvents(input Params) *Pager {
+	return c.client.newPager(operations["direct_messages.get_events"], cloneParams(input))
 }
 
 func (c *DirectMessagesClient) GetEventsByConversationId(input Params) *Pager {
 	return c.client.newPager(operations["direct_messages.get_events_by_conversation_id"], cloneParams(input))
 }
 
-func (c *DirectMessagesClient) GetEvents(input Params) *Pager {
-	return c.client.newPager(operations["direct_messages.get_events"], cloneParams(input))
+func (c *DirectMessagesClient) GetEventsByParticipantId(input Params) *Pager {
+	return c.client.newPager(operations["direct_messages.get_events_by_participant_id"], cloneParams(input))
+}
+
+func (c *DirectMessagesClient) CreateByParticipantId(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["direct_messages.create_by_participant_id"], cloneParams(input))
 }
 
 func (c *DirectMessagesClient) GetEventsById(ctx context.Context, input Params) (JSON, error) {
@@ -38,3 +38,4 @@ func (c *DirectMessagesClient) GetEventsById(ctx context.Context, input Params) 
 func (c *DirectMessagesClient) DeleteEvents(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["direct_messages.delete_events"], cloneParams(input))
 }
+

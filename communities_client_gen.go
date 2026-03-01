@@ -7,10 +7,11 @@ type CommunitiesClient struct {
 	client *Client
 }
 
+func (c *CommunitiesClient) Search(input Params) *Pager {
+	return c.client.newPager(operations["communities.search"], cloneParams(input))
+}
+
 func (c *CommunitiesClient) GetById(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["communities.get_by_id"], cloneParams(input))
 }
 
-func (c *CommunitiesClient) Search(input Params) *Pager {
-	return c.client.newPager(operations["communities.search"], cloneParams(input))
-}

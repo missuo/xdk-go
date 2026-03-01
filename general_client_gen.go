@@ -10,3 +10,4 @@ type GeneralClient struct {
 func (c *GeneralClient) GetOpenApiSpec(ctx context.Context, input Params) (JSON, error) {
 	return c.client.call(ctx, operations["general.get_open_api_spec"], cloneParams(input))
 }
+

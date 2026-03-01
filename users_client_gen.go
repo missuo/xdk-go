@@ -7,52 +7,12 @@ type UsersClient struct {
 	client *Client
 }
 
-func (c *UsersClient) GetByUsername(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.get_by_username"], cloneParams(input))
+func (c *UsersClient) GetPinnedLists(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.get_pinned_lists"], cloneParams(input))
 }
 
-func (c *UsersClient) GetRepostsOfMe(input Params) *Pager {
-	return c.client.newPager(operations["users.get_reposts_of_me"], cloneParams(input))
-}
-
-func (c *UsersClient) RepostPost(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.repost_post"], cloneParams(input))
-}
-
-func (c *UsersClient) UnpinList(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.unpin_list"], cloneParams(input))
-}
-
-func (c *UsersClient) UnblockDms(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.unblock_dms"], cloneParams(input))
-}
-
-func (c *UsersClient) GetByIds(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.get_by_ids"], cloneParams(input))
-}
-
-func (c *UsersClient) GetFollowing(input Params) *Pager {
-	return c.client.newPager(operations["users.get_following"], cloneParams(input))
-}
-
-func (c *UsersClient) FollowUser(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.follow_user"], cloneParams(input))
-}
-
-func (c *UsersClient) GetById(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.get_by_id"], cloneParams(input))
-}
-
-func (c *UsersClient) UnrepostPost(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.unrepost_post"], cloneParams(input))
-}
-
-func (c *UsersClient) GetBookmarkFolders(input Params) *Pager {
-	return c.client.newPager(operations["users.get_bookmark_folders"], cloneParams(input))
-}
-
-func (c *UsersClient) GetTimeline(input Params) *Pager {
-	return c.client.newPager(operations["users.get_timeline"], cloneParams(input))
+func (c *UsersClient) PinList(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.pin_list"], cloneParams(input))
 }
 
 func (c *UsersClient) GetFollowedLists(input Params) *Pager {
@@ -63,8 +23,108 @@ func (c *UsersClient) FollowList(ctx context.Context, input Params) (JSON, error
 	return c.client.call(ctx, operations["users.follow_list"], cloneParams(input))
 }
 
+func (c *UsersClient) GetMe(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.get_me"], cloneParams(input))
+}
+
+func (c *UsersClient) LikePost(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.like_post"], cloneParams(input))
+}
+
+func (c *UsersClient) GetTimeline(input Params) *Pager {
+	return c.client.newPager(operations["users.get_timeline"], cloneParams(input))
+}
+
+func (c *UsersClient) GetById(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.get_by_id"], cloneParams(input))
+}
+
+func (c *UsersClient) RepostPost(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.repost_post"], cloneParams(input))
+}
+
+func (c *UsersClient) GetPosts(input Params) *Pager {
+	return c.client.newPager(operations["users.get_posts"], cloneParams(input))
+}
+
+func (c *UsersClient) UnmuteUser(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.unmute_user"], cloneParams(input))
+}
+
+func (c *UsersClient) UnblockDms(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.unblock_dms"], cloneParams(input))
+}
+
+func (c *UsersClient) UnlikePost(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.unlike_post"], cloneParams(input))
+}
+
+func (c *UsersClient) GetOwnedLists(input Params) *Pager {
+	return c.client.newPager(operations["users.get_owned_lists"], cloneParams(input))
+}
+
+func (c *UsersClient) BlockDms(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.block_dms"], cloneParams(input))
+}
+
+func (c *UsersClient) GetRepostsOfMe(input Params) *Pager {
+	return c.client.newPager(operations["users.get_reposts_of_me"], cloneParams(input))
+}
+
+func (c *UsersClient) GetAffiliates(input Params) *Pager {
+	return c.client.newPager(operations["users.get_affiliates"], cloneParams(input))
+}
+
+func (c *UsersClient) UnrepostPost(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.unrepost_post"], cloneParams(input))
+}
+
+func (c *UsersClient) GetByUsernames(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.get_by_usernames"], cloneParams(input))
+}
+
+func (c *UsersClient) Search(input Params) *Pager {
+	return c.client.newPager(operations["users.search"], cloneParams(input))
+}
+
+func (c *UsersClient) GetByUsername(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.get_by_username"], cloneParams(input))
+}
+
+func (c *UsersClient) GetFollowing(input Params) *Pager {
+	return c.client.newPager(operations["users.get_following"], cloneParams(input))
+}
+
+func (c *UsersClient) FollowUser(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.follow_user"], cloneParams(input))
+}
+
+func (c *UsersClient) GetListMemberships(input Params) *Pager {
+	return c.client.newPager(operations["users.get_list_memberships"], cloneParams(input))
+}
+
+func (c *UsersClient) GetMentions(input Params) *Pager {
+	return c.client.newPager(operations["users.get_mentions"], cloneParams(input))
+}
+
+func (c *UsersClient) GetBlocking(input Params) *Pager {
+	return c.client.newPager(operations["users.get_blocking"], cloneParams(input))
+}
+
+func (c *UsersClient) GetBookmarksByFolderId(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.get_bookmarks_by_folder_id"], cloneParams(input))
+}
+
 func (c *UsersClient) GetFollowers(input Params) *Pager {
 	return c.client.newPager(operations["users.get_followers"], cloneParams(input))
+}
+
+func (c *UsersClient) UnfollowUser(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.unfollow_user"], cloneParams(input))
+}
+
+func (c *UsersClient) GetLikedPosts(input Params) *Pager {
+	return c.client.newPager(operations["users.get_liked_posts"], cloneParams(input))
 }
 
 func (c *UsersClient) GetBookmarks(input Params) *Pager {
@@ -75,20 +135,20 @@ func (c *UsersClient) CreateBookmark(ctx context.Context, input Params) (JSON, e
 	return c.client.call(ctx, operations["users.create_bookmark"], cloneParams(input))
 }
 
-func (c *UsersClient) UnlikePost(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.unlike_post"], cloneParams(input))
+func (c *UsersClient) UnfollowList(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.unfollow_list"], cloneParams(input))
 }
 
-func (c *UsersClient) LikePost(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.like_post"], cloneParams(input))
+func (c *UsersClient) UnpinList(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.unpin_list"], cloneParams(input))
 }
 
-func (c *UsersClient) UnmuteUser(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.unmute_user"], cloneParams(input))
+func (c *UsersClient) DeleteBookmark(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.delete_bookmark"], cloneParams(input))
 }
 
-func (c *UsersClient) GetBookmarksByFolderId(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.get_bookmarks_by_folder_id"], cloneParams(input))
+func (c *UsersClient) GetBookmarkFolders(input Params) *Pager {
+	return c.client.newPager(operations["users.get_bookmark_folders"], cloneParams(input))
 }
 
 func (c *UsersClient) GetMuting(input Params) *Pager {
@@ -99,62 +159,7 @@ func (c *UsersClient) MuteUser(ctx context.Context, input Params) (JSON, error) 
 	return c.client.call(ctx, operations["users.mute_user"], cloneParams(input))
 }
 
-func (c *UsersClient) UnfollowUser(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.unfollow_user"], cloneParams(input))
+func (c *UsersClient) GetByIds(ctx context.Context, input Params) (JSON, error) {
+	return c.client.call(ctx, operations["users.get_by_ids"], cloneParams(input))
 }
 
-func (c *UsersClient) GetPosts(input Params) *Pager {
-	return c.client.newPager(operations["users.get_posts"], cloneParams(input))
-}
-
-func (c *UsersClient) GetBlocking(input Params) *Pager {
-	return c.client.newPager(operations["users.get_blocking"], cloneParams(input))
-}
-
-func (c *UsersClient) DeleteBookmark(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.delete_bookmark"], cloneParams(input))
-}
-
-func (c *UsersClient) GetOwnedLists(input Params) *Pager {
-	return c.client.newPager(operations["users.get_owned_lists"], cloneParams(input))
-}
-
-func (c *UsersClient) GetPinnedLists(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.get_pinned_lists"], cloneParams(input))
-}
-
-func (c *UsersClient) PinList(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.pin_list"], cloneParams(input))
-}
-
-func (c *UsersClient) GetLikedPosts(input Params) *Pager {
-	return c.client.newPager(operations["users.get_liked_posts"], cloneParams(input))
-}
-
-func (c *UsersClient) Search(input Params) *Pager {
-	return c.client.newPager(operations["users.search"], cloneParams(input))
-}
-
-func (c *UsersClient) GetListMemberships(input Params) *Pager {
-	return c.client.newPager(operations["users.get_list_memberships"], cloneParams(input))
-}
-
-func (c *UsersClient) BlockDms(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.block_dms"], cloneParams(input))
-}
-
-func (c *UsersClient) GetByUsernames(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.get_by_usernames"], cloneParams(input))
-}
-
-func (c *UsersClient) UnfollowList(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.unfollow_list"], cloneParams(input))
-}
-
-func (c *UsersClient) GetMentions(input Params) *Pager {
-	return c.client.newPager(operations["users.get_mentions"], cloneParams(input))
-}
-
-func (c *UsersClient) GetMe(ctx context.Context, input Params) (JSON, error) {
-	return c.client.call(ctx, operations["users.get_me"], cloneParams(input))
-}

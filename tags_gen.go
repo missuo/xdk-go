@@ -4,6 +4,7 @@ package xdk
 var generatedTags = []string{
 	"account_activity",
 	"activity",
+	"chat",
 	"communities",
 	"community_notes",
 	"compliance",
@@ -21,3 +22,4 @@ var generatedTags = []string{
 	"users",
 	"webhooks",
 }
+
